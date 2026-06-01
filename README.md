@@ -2,6 +2,8 @@
 
 A comprehensive JavaScript learning resource covering fundamental programming concepts from basics to advanced OOP and modules. This repository is organized into 8 numbered modules, each building upon the previous one.
 
+**Author:** [Anil Kumar Nag](https://www.linkedin.com/in/anilkumarnag/) — Connect on LinkedIn
+
 ---
 
 ## 📚 Repository Structure
