@@ -101,7 +101,11 @@ function sayHi() { console.log('hi'); }
 console.log(x); // undefined → var hoisted
 var x = 10;
 
-console.log(y); // ReferenceError → let/const in TDZ
+try {
+  console.log(y); // ReferenceError → let/const in TDZ
+} catch (e) {
+  console.log('TDZ Error:', e.message); // Cannot access 'y' before initialization
+}
 let y = 20;
 
 // =============================================================

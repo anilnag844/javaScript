@@ -11,10 +11,11 @@
 // • Factory fx vs Constructor fx (new keyword behaviour)  
 //      Factory returns object; Constructor uses `new` to create it.
 //
-// • `new` does 3 things  
-//      1. creates empty object {}  
-//      2. binds `this` to it  
-//      3. returns the object automatically
+// • `new` does 4 things
+//      1. creates empty object {}
+//      2. sets its __proto__ → Constructor.prototype (enables prototype chain)
+//      3. binds `this` to it
+//      4. returns the object automatically
 //
 // • this keyword depends on HOW function is called  
 //      obj.method() → `this` = obj  
@@ -49,8 +50,8 @@
 // • structuredClone(obj) → deep clone  
 //      Safest built-in method to fully copy objects.
 //
-// • freeze() vs seal() → immutability levels  
-//      freeze() = no change at all  
+// • freeze() vs seal() → immutability levels
+//      freeze() = no change at all (shallow — nested objects are still mutable!)
 //      seal() = can't add/remove, but can modify existing
 //
 // • Optional chaining ?. to avoid crashes  

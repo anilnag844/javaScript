@@ -1,5 +1,5 @@
 
-let numbet = max(1, 2);
+let number = max(1, 2);
 console.log(number);
 
 function max(a, b) { 

@@ -27,7 +27,8 @@ console.log(typeof name);          // "string"
 console.log(typeof age);           // "number"
 console.log(typeof isApproved);    // "boolean"
 console.log(typeof firstName);     // "undefined"
-console.log(typeof selectedColor); // ❌ "object" (bug: null is primitive)
+console.log(typeof selectedColor); // "object" — JS legacy quirk (null is primitive, but typeof null === "object" since ES1 for backward compat)
+                                   // Safe null check: selectedColor !== null && typeof selectedColor === 'object'
 console.log(typeof id);            // "symbol"
 console.log(typeof bigNumber);     // "bigint"
 

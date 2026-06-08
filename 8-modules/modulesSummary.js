@@ -124,7 +124,7 @@ console.log('\n5. WEBPACK');
 
 // 2. What is the difference between CommonJS and ES6 modules?
 // - CommonJS: require() / module.exports — synchronous, Node.js default
-// - ES6: import / export — asynchronous, static analysis, tree-shakeable
+// - ES6: import / export — synchronous static loading, static analysis, tree-shakeable (dynamic import() is async)
 // - ESM is the modern standard; Node.js supports both
 
 // 3. What is the difference between named and default exports?
