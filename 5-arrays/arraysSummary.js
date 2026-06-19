@@ -57,7 +57,7 @@
 // ===================================================================
 
 
-console.log('%c JAVASCRIPT ARRAYS – Complete Mastery (2025)', 'font-size:20px; color:#ff6f61');
+console.log('JAVASCRIPT ARRAYS – Complete Mastery (2025)'); // %c styling only works in browser devtools, not Node.js
 
 
 // ————————————————————————
@@ -88,7 +88,7 @@ numbers.shift();            // Remove beginning
 numbers.splice(2, 1);       // Remove middle
 
 // Best way to empty (works with const + references)
-numbers.length = 0;
+// numbers.length = 0; // ⚠️ commented out — would empty the array used in all examples below
 
 
 // ————————————————————————
@@ -185,7 +185,7 @@ console.log(createSlug('  JavaScript Arrays 2025  '));
 // 12. ITERATION
 // ————————————————————————
 numbers.forEach((num, i) => console.log(i, num));
-for (let n of numbers) console.log(n);
+for (let n of numbers) { console.log(n); }
 
 
 // ————————————————————————

@@ -23,19 +23,29 @@ console.log('1. IF / ELSE — Real Life Examples');
 
 // Simple if → Check login
 let isLoggedIn = true;
-if (isLoggedIn) console.log('Welcome back!');
+if (isLoggedIn) {
+  console.log('Welcome back!');
+}
 
 // if...else → Check bank balance
 let balance = 120;
-if (balance >= 100) console.log('Purchase successful!');
-else console.log('Insufficient funds');
+if (balance >= 100) {
+  console.log('Purchase successful!');
+} else {
+  console.log('Insufficient funds');
+}
 
 // if...else if → Student grade
 let score = 82;
-if (score >= 90) console.log('Grade: A');
-else if (score >= 80) console.log('Grade: B');      // ← runs
-else if (score >= 70) console.log('Grade: C');
-else console.log('Grade: F');
+if (score >= 90) {
+  console.log('Grade: A');
+} else if (score >= 80) {
+  console.log('Grade: B');      // ← runs
+} else if (score >= 70) {
+  console.log('Grade: C');
+} else {
+  console.log('Grade: F');
+}
 
 // Ternary → Check driving eligibility
 let age = 17;
@@ -56,7 +66,7 @@ switch (day) {
   case 3: console.log('Grocery Day'); break;
   case 4: console.log('Work from Home'); break;
   case 5: console.log('Movie Night'); break;
-  default: console.log('Relax, it’s weekend!'); // ← runs
+  default: console.log(`Relax, it’s weekend!`); // ← runs
 }
 
 // Grade system (Fall-through)
@@ -180,9 +190,22 @@ console.log(validatePassword('12345'));
 
 // Guard clause → Safe division
 function divide(a, b) {
-  if (b === 0) return '❌ Cannot divide by 0';
+  if (b === 0) {
+    return 'Cannot divide by 0';
+  }
   return a / b;
 }
+console.log(divide(10, 2));  // 5
+console.log(divide(10, 0));  // 'Cannot divide by 0'
+
+// Nullish coalescing (??) → User settings with defaults
+let userTheme = null;
+let theme = userTheme ?? 'dark';
+console.log(`Theme: ${theme}`); // 'dark' — null triggers default
+
+// Optional chaining (?.) → Safe nested access
+let loggedInUser = null;
+console.log(loggedInUser?.profile?.name ?? 'Guest'); // 'Guest' — no TypeError
 
 // Loop with index → Playlist
 let playlist = ['Song A', 'Song B', 'Song C'];

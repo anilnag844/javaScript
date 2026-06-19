@@ -6,11 +6,14 @@
 // - Modify properties directly: obj.key = value or obj['key'] = value
 // - Add new properties dynamically
 // - Shallow copy: Object.assign({}, obj) or spread {...obj} to avoid shared references
+//     ⚠️ Shallow copy only — nested objects are still shared references
 // - Nested objects: modifying nested properties affects original object
 // - Arrays of objects: store multiple objects; changes affect original references
 // - Const objects: properties are mutable, but variable cannot be reassigned
 // - Access properties: dot notation, bracket notation, dynamic keys
 // - Iterate: for...in loop over keys
+// - Delete properties: delete obj.key
+// - Check existence: 'key' in obj or obj.hasOwnProperty('key')
 // - Utility methods: Object.keys(obj), Object.values(obj), Object.entries(obj)
 
 // -------------------- Creating and Modifying an Object --------------------
@@ -53,6 +56,16 @@ console.log('Employee:', employee);
 employee.address.city = 'Mumbai';
 console.log('Employee after nested change:', employee);
 
+// ⚠️ Shallow copy does NOT protect nested objects
+let copiedEmployee = { ...employee };
+copiedEmployee.address.city = 'Delhi'; // mutates employee.address too!
+console.log('employee.address.city after shallow copy change:', employee.address.city); // "Delhi"
+
+// Fix: deep copy using structuredClone (modern JS)
+let deepEmployee = structuredClone(employee);
+deepEmployee.address.city = 'Chennai';
+console.log('employee.address.city after deep copy change:', employee.address.city); // "Delhi" — unaffected
+
 // -------------------- Array of Objects --------------------
 let employees = [
   { name: 'Anil', age: 30 },
@@ -73,14 +86,24 @@ console.log('Const person1 after change:', person1);
 // -------------------- Accessing Properties --------------------
 console.log('Dot notation:', person.name);
 console.log('Bracket notation:', person['age']);
-let key = 'name';
-console.log('Bracket with variable:', person[key]);
+let propKey = 'name';
+console.log('Bracket with variable:', person[propKey]);
 
 // -------------------- Iterating Over Properties --------------------
 console.log('For...in loop:');
 for (let key in person) {
   console.log(`${key}: ${person[key]}`);
 }
+
+// -------------------- Delete a Property --------------------
+delete person.address;
+console.log('person after delete:', person); // address is gone
+
+// -------------------- Property Existence Check --------------------
+console.log('name' in person);                   // true
+console.log('address' in person);                // false (just deleted)
+console.log(person.hasOwnProperty('name'));      // true
+console.log(person.hasOwnProperty('toString')); // false (inherited, not own)
 
 // -------------------- Utility Methods --------------------
 console.log('Object.keys:', Object.keys(person));

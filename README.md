@@ -38,8 +38,8 @@ Learn the building blocks of JavaScript programming.
 | `3-primitiveTypes.js` | Primitive Types | String, Number, Boolean, Undefined, Null, Symbol, BigInt; `typeof` operator |
 | `4-dynamicTyping.js` | Dynamic vs Static Typing | JavaScript's dynamic nature vs statically typed languages; type coercion |
 | `5-objects.js` | Objects | Key-value pairs; creating, modifying, and copying objects; reference types |
-| `6-arrays.js` | Arrays | Array declaration; indexing; methods (push, pop, shift, unshift, splice) |
-| `7-functions.js` | Functions | Function declaration and invocation; parameters vs arguments; return values |
+| `6-arrays.js` | Arrays | Array declaration; indexing; add/remove (push, pop, shift, unshift, splice); search (indexOf, includes, find); transform (map, filter, reduce); sort, reverse |
+| `7-functions.js` | Functions | Declaration vs expression; arrow functions; default & rest parameters; hoisting; functions as first-class values; call/apply/bind |
 
 **Key Concepts:**
 - Variable naming rules and best practices
@@ -56,13 +56,16 @@ Master different types of operators and their usage.
 
 | File | Topic | Description |
 |------|-------|-------------|
-| `javaScricptOperators.js` | All Operators | Arithmetic, Assignment, Comparison, Logical, Ternary, Bitwise, typeof, Increment/Decrement |
+| `javascriptOperators.js` | All Operators | Arithmetic, Assignment, Comparison, Logical, Nullish, Optional Chaining, Ternary, Bitwise, Increment/Decrement, Logical Assignment |
 
 **Key Concepts:**
 - Arithmetic operations: `+`, `-`, `*`, `/`, `%`, `**`
 - Assignment operators: `=`, `+=`, `-=`, `*=`, `/=`, `%=`
 - Comparison operators: `==`, `===`, `!=`, `!==`, `>`, `<`, `>=`, `<=`
 - Logical operators: `&&` (AND), `||` (OR), `!` (NOT)
+- Nullish coalescing `??` — returns right side only if left is `null`/`undefined`
+- Optional chaining `?.` — safe nested property access without TypeError
+- Logical assignment: `&&=`, `||=`, `??=`
 - Ternary operator for inline conditionals
 - Operator precedence and parentheses
 
@@ -85,7 +88,7 @@ Learn how to control program flow with conditionals and loops.
 | `9-grade.js` | Grade Calculation | Convert numeric score to letter grade |
 | `10-stars.js` | Pattern Generation | Generate star patterns using nested loops |
 | `11-primeNumber.js` | Prime Number Check | Algorithm to identify prime numbers |
-| `controlFlowSummery.js` | Quick Reference | Complete revision guide with key concepts |
+| `controlFlowSummary.js` | Quick Reference | Complete revision guide with key concepts |
 
 **Key Concepts:**
 - `if`, `else if`, `else` statements
@@ -120,7 +123,7 @@ Practice working with objects and solving problems using object patterns.
 | `14-blogPost.js` | Nested Object Literal | Blog post with nested comments array — real-world object modelling |
 | `15-post.js` | Smart Constructor | Post constructor with intelligent defaults (views=0, isLive=false) |
 | `16-priceRange.js` | Array of Objects | Price range objects with label, tooltip, min/maxPerPerson properties |
-| `objectSummery.js` | Complete Reference | Comprehensive revision guide for objects |
+| `objectSummary.js` | Complete Reference | Comprehensive revision guide for objects |
 
 **Key Concepts:**
 - Object creation and manipulation
@@ -147,7 +150,7 @@ Master advanced array operations and functional programming patterns.
 | `5-countOccurrences.js` | Count Element Frequency | Tally occurrences of elements |
 | `6-max.js` | Find Maximum Value | Identify largest element in array |
 | `7-movies.js` | Method Chaining | Filter by year+rating → sort descending → map to titles |
-| `arraysSummery.js` | Complete Reference | Comprehensive revision guide for arrays |
+| `arraysSummary.js` | Complete Reference | Comprehensive revision guide for arrays |
 
 **Key Concepts:**
 - `push`, `pop`, `shift`, `unshift` for adding/removing elements
@@ -169,9 +172,9 @@ Explore function declarations, expressions, and advanced patterns.
 | File | Topic | Description |
 |------|-------|-------------|
 | `1-sumOfArgs.js` | Variable Arguments | Handle unknown number of parameters using `arguments` or rest operator |
-| `2-areaOfCircle.js` | Default Parameters | Provide fallback values for function parameters |
+| `2-areaOfCircle.js` | Getters & Setters | Computed `area` getter; `radius` setter with validation; controlled property access |
 | `3-errorHandling.js` | Try/Catch/Finally | Handle runtime errors with error handling blocks |
-| `functionsSummery.js` | Complete Reference | Comprehensive revision guide for functions |
+| `functionsSummary.js` | Complete Reference | Comprehensive revision guide for functions |
 
 **Key Concepts:**
 - Function declaration vs expression
@@ -252,7 +255,7 @@ Understand how JavaScript code is organised, bundled, and delivered.
 ✅ Read each file's comments for explanations  
 ✅ Run the code to see outputs  
 ✅ Modify examples to experiment  
-✅ Refer to the `*Summery.js` files for quick revision  
+✅ Refer to the `*Summary.js` files for quick revision  
 ✅ Practice the problems multiple times  
 ✅ Try to solve them without looking at solutions first
 
@@ -408,7 +411,7 @@ After completing this curriculum, you should be able to:
 
 ## 📅 Last Updated
 
-January 2025 - Complete revision with modern JavaScript practices
+June 2025 - Complete revision with modern JavaScript practices
 
 ---
 
@@ -420,7 +423,7 @@ This is a self-paced learning curriculum. Each file contains:
 - Common pitfalls and best practices
 - Interview-important concepts
 
-**Tip:** Review the `*Summery.js` files regularly for quick reference before interviews or coding challenges.
+**Tip:** Review the `*Summary.js` files regularly for quick reference before interviews or coding challenges.
 
 ---
 

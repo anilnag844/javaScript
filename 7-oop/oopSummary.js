@@ -87,14 +87,16 @@ console.log(sq instanceof Shape);  // true
 // ———————————————————————
 console.log('\n3. POLYMORPHISM');
 
-function Triangle() {}
+function Triangle(color) {
+  Shape.call(this, color); // properly call parent constructor
+}
 extend(Triangle, Shape);
 Triangle.prototype.duplicate = function() {
   console.log('Duplicating triangle');
 };
 
 // Polymorphism — same method name, different behaviour
-const shapes = [new Square(5, 'red'), new Triangle()];
+const shapes = [new Square(5, 'red'), new Triangle('green')];
 shapes.forEach(s => s.duplicate());
 // Square → 'Duplicating square'
 // Triangle → 'Duplicating triangle'
@@ -138,7 +140,7 @@ console.log(d instanceof Animal); // true
 
 // Static method → called on class, not instance
 class MathHelper {
-  static add(a, b) { return a + b; }
+  static add(a, b) { return a + b; } // called on class, not instance
   static PI = 3.14159;
 }
 console.log(MathHelper.add(5, 3));

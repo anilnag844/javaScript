@@ -5,9 +5,13 @@
 // - Zero-indexed: first element is at index 0
 // - Can contain any type: string, number, boolean, object, array, etc.
 // - Common methods:
-//     - Add: push(), unshift(), array[index] = value
-//     - Remove: pop(), shift(), splice()
-//     - Copy: [...array] (shallow copy)
+//     - Add:       push(), unshift(), splice()
+//     - Remove:    pop(), shift(), splice()
+//     - Copy:      [...array] (shallow copy)
+//     - Search:    indexOf(), includes(), find(), findIndex()
+//     - Transform: map(), filter(), reduce()
+//     - Sort:      sort() ⚠️ lexicographic by default — pass comparator for numbers
+//     - Reverse:   reverse()
 // - Iteration: for, for...of, forEach
 // - Arrays are objects: typeof → "object", check with Array.isArray()
 // - Use const if array reference won’t change (elements can still be modified)
@@ -34,6 +38,19 @@ console.log('After removing index 1:', selectedColors);
 const removedColor = selectedColors.pop();
 console.log('After pop (removed):', removedColor);
 console.log('Array now:', selectedColors);
+
+// Add element at the front (unshift)
+selectedColors.unshift('white');
+console.log('After unshift white:', selectedColors);
+
+// Remove element from the front (shift)
+const firstRemoved = selectedColors.shift();
+console.log('After shift (removed):', firstRemoved);
+console.log('Array now:', selectedColors);
+
+// splice() to insert without removing (startIndex, 0, value)
+selectedColors.splice(1, 0, 'orange');
+console.log('After splice insert at index 1:', selectedColors);
 
 // -------------------- Array Properties --------------------
 console.log('Length of Selected Colors:', selectedColors.length);
@@ -74,6 +91,37 @@ let copiedColors = [...selectedColors];
 copiedColors.push('purple');
 console.log('Copied Colors after push:', copiedColors);
 console.log('Original Selected Colors remains unchanged:', selectedColors);
+
+// -------------------- Searching --------------------
+console.log('indexOf red:', selectedColors.indexOf('red'));        // index or -1
+console.log('includes red:', selectedColors.includes('red'));      // true/false
+console.log('find:', selectedColors.find(c => c === 'red'));       // value or undefined
+console.log('findIndex:', selectedColors.findIndex(c => c === 'red')); // index or -1
+
+// -------------------- Transformation Methods --------------------
+const nums = [1, 2, 3, 4];
+
+// map: transform each element into a new array
+const doubled = nums.map(n => n * 2);
+console.log('map (doubled):', doubled); // [2, 4, 6, 8]
+
+// filter: keep elements that pass the test
+const evens = nums.filter(n => n % 2 === 0);
+console.log('filter (evens):', evens); // [2, 4]
+
+// reduce: accumulate a single value
+const sum = nums.reduce((acc, n) => acc + n, 0);
+console.log('reduce (sum):', sum); // 10
+
+// -------------------- Sort and Reverse --------------------
+const letters = ['banana', 'apple', 'cherry'];
+console.log('sort (strings):', [...letters].sort()); // alphabetical ✅
+
+const numbers = [10, 2, 1, 20];
+console.log('sort (numbers, default):', [...numbers].sort());          // [1, 10, 2, 20] ⚠️ wrong!
+console.log('sort (numbers, comparator):', [...numbers].sort((a, b) => a - b)); // [1, 2, 10, 20] ✅
+
+console.log('reverse:', [...letters].reverse()); // original not mutated (spread first)
 
 // -------------------- Nested Arrays --------------------
 let matrix = [

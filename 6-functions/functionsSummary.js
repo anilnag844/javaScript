@@ -113,10 +113,10 @@ let y = 20;
 // =============================================================
 function sumAll() {
   let total = 0;
-  for (let value of arguments) total += value; // arguments is iterable
+  for (let value of arguments) { total += value; } // arguments is iterable
   return total;
 }
-sumAll(1, 2, 3, 4, 5, 100); // → 115
+console.log(sumAll(1, 2, 3, 4, 5, 100)); // 115
 
 // =============================================================
 // 4. The Rest Operator (modern & best)
@@ -124,13 +124,13 @@ sumAll(1, 2, 3, 4, 5, 100); // → 115
 function sum(...numbers) { // real Array
   return numbers.reduce((a, b) => a + b);
 }
-sum(10, 20, 30); // → 60
+console.log(sum(10, 20, 30)); // 60
 
 function calculateCart(discount, ...prices) {
   const total = prices.reduce((a, b) => a + b);
   return total * (1 - discount);
 }
-calculateCart(0.1, 100, 50); // → 135
+console.log(calculateCart(0.1, 100, 50)); // 135
 
 // =============================================================
 // 5. Default Parameters (ES6+)
@@ -178,8 +178,15 @@ try {
 }
 
 function divide(a, b = 1) {
-  if (b === 0) throw new Error('Division by zero');
+  if (b === 0) { throw new Error('Division by zero'); }
   return a / b;
+}
+console.log(divide(10, 2));  // 5
+console.log(divide(10));     // 10 — default b=1
+try {
+  console.log(divide(10, 0));
+} catch (e) {
+  console.log('divide error:', e.message); // 'Division by zero'
 }
 
 // =============================================================
@@ -213,23 +220,23 @@ for (let j = 0; j < 3; j++) {}
 // 10. The this Keyword
 // =============================================================
 const video = {
-  title: 'a',
+  title: 'JavaScript Basics',
   play() {
-    console.log(this); // → video object
+    console.log(this.title); // → 'JavaScript Basics'
   }
 };
 video.play();
 
 function playVideo() {
-  console.log(this); // → window / undefined
+  console.log(this); // → window (browser) / undefined (strict mode)
 }
 playVideo();
 
 function Video(title) {
   this.title = title;
-  console.log(this); // → new empty object
+  console.log(this.title); // → title of new object
 }
-const v = new Video('b');
+const v = new Video('Node.js Intro');
 
 // =============================================================
 // 11. Changing this (3 ways – arrow is king)

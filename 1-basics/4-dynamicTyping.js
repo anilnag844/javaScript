@@ -16,36 +16,41 @@
 // - Use static typing for large codebases to catch errors early
 // - Use dynamic typing for flexibility and rapid development
 
-// -------------------- Static (Statically Typed Languages) --------------------
-// Examples: C, C++, Java, C#
+// -------------------- Static Typing (Conceptual) --------------------
+// In static languages (Java, C#), variables are type-locked at declaration:
+// string message = "Hello";  // only strings allowed
+// message = 1234;            // ❌ compile-time error
 
-let message; // In static languages, you would declare: string message;
-message = 'Hello World';
-console.log(message);
+// TypeScript equivalent (static typing on top of JS):
+// let message: string = 'Hello'; // type-locked to string
 
-// ❌ Errors if you try to assign a different type (in static languages)
-// message = 1234;       // Error
-// message = true;       // Error
-// message = null;       // Error
-// message = undefined;  // Error
-
-// -------------------- Dynamic (Dynamically Typed Languages) --------------------
-// Examples: Python, Ruby, JavaScript
+// -------------------- Dynamic Typing (JavaScript) --------------------
+// The same variable can hold different types at different times
 
 let msg;
-msg = 'Hello World'; 
-console.log(msg);
+msg = 'Hello World';
+console.log(msg, typeof msg); // Hello World  string
 
-msg = 1234; 
-console.log(msg);
+msg = 1234;
+console.log(msg, typeof msg); // 1234  number
 
-msg = true; 
-console.log(msg);
+msg = true;
+console.log(msg, typeof msg); // true  boolean
 
-msg = null; 
-console.log(msg);
+msg = null;
+console.log(msg, typeof msg); // null  object  (legacy JS quirk)
 
-msg = undefined; 
-console.log(msg);
+msg = undefined;
+console.log(msg, typeof msg); // undefined  undefined
+
+// -------------------- Why It Matters: Runtime Gotcha --------------------
+let input = '5';   // came from user input (always a string)
+let result = input + 10;
+console.log(result);         // "510" — string concatenation, not addition!
+console.log(typeof result);  // "string"
+
+// Fix: explicitly convert the type
+result = Number(input) + 10;
+console.log(result);         // 15
 
 // ==================== End of Typing Example ====================

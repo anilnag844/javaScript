@@ -101,10 +101,11 @@ function Circle(radius) {
 }
 const c2 = new Circle(10);
 
-// new does 3 things:
+// new does 4 things:
 // 1. Creates empty object {}
-// 2. Binds this → that object
-// 3. Returns the created object
+// 2. Sets its __proto__ → Constructor.prototype (enables prototype chain)
+// 3. Binds this → that object
+// 4. Returns the created object
 
 
 
@@ -149,7 +150,7 @@ const deepClone = structuredClone(original);
 // ====================================================================
 // 7. ENUMERATING & INSPECTING
 // ====================================================================
-for (let key in circle) console.log(key, circle[key]);
+for (let key in circle) { console.log(key, circle[key]); }
 console.log(Object.keys(circle));        // ['radius', 'draw']
 console.log(Object.entries(circle));     // [['radius',1], ['draw', f]]
 console.log('radius' in circle);         // true

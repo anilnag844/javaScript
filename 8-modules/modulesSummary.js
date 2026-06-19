@@ -1,9 +1,11 @@
 // -------------------- Quick Summary (For Revision) --------------------
 // - Module: A file that encapsulates related code and exposes only what's needed
-// - CommonJS (CJS): Node.js default → require() / module.exports
-// - ES6 Modules (ESM): Browser & modern Node → import / export
+// - CommonJS (CJS): Node.js default → require() / module.exports (synchronous)
+// - ES6 Modules (ESM): Browser & modern Node → import / export (static)
 // - Named export: export multiple things by name → import { name } from ...
 // - Default export: one main thing per file → import anything from ...
+// - Dynamic import(): import() returns a Promise — lazy-loads a module at runtime
+// - __dirname / __filename: Node.js globals — absolute path of directory/file
 // - Babel: Transpiles modern JS (ES6+) → older JS browsers can understand
 // - Webpack: Bundles multiple module files → one optimised file for browser
 // - Tree shaking: Webpack removes unused exports from the final bundle
@@ -124,7 +126,8 @@ console.log('\n5. WEBPACK');
 
 // 2. What is the difference between CommonJS and ES6 modules?
 // - CommonJS: require() / module.exports — synchronous, Node.js default
-// - ES6: import / export — synchronous static loading, static analysis, tree-shakeable (dynamic import() is async)
+// - ES6: import / export — static loading, enables tree-shaking and static analysis
+// - dynamic import() is async (returns a Promise) — lazy-loads on demand
 // - ESM is the modern standard; Node.js supports both
 
 // 3. What is the difference between named and default exports?
@@ -158,3 +161,21 @@ console.log('\n5. WEBPACK');
 // - Add type="module" to the script tag:
 //   <script type="module" src="app.js"></script>
 // - Or bundle with Webpack and load the bundle normally
+
+// 9. What are __dirname and __filename?
+// - Node.js globals available in CommonJS modules (not in ESM by default)
+// - __dirname:  absolute path to the directory of the current file
+// - __filename: absolute path to the current file itself
+// - Useful for building file paths that work regardless of where Node is run from
+// Example:
+// const path = require('path');
+// const fullPath = path.join(__dirname, 'data', 'file.json');
+
+// 10. What is dynamic import() and when would you use it?
+// - import() loads a module asynchronously and returns a Promise
+// - Use it to lazy-load heavy modules only when needed (code splitting)
+// Example:
+// async function loadChart() {
+//   const { Chart } = await import('./chart.js');
+//   new Chart(data);
+// }

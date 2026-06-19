@@ -12,7 +12,7 @@
 
 // -------------------- Example: Primitive with const --------------------
 const interestRate = 1;
-console.log('interestRate1:', interestRate);
+console.log('interestRate:', interestRate);
 // ❌ Reassigning primitive const is not allowed
 // interestRate = 3;
 
@@ -37,5 +37,20 @@ console.log('Const array (after push):', numbers);
 
 // ❌ Not allowed: Reassigning the array entirely
 // numbers = [5, 6, 7];
+
+// -------------------- Example: let vs const --------------------
+let score = 10;
+score = 20; // ✅ Allowed: let can be reassigned
+console.log('score after reassign:', score);
+
+// -------------------- Example: Object.freeze() for true immutability --------------------
+const frozen = Object.freeze({ name: 'Anil', age: 30 });
+frozen.age = 99; // silently fails (throws TypeError in strict mode)
+console.log('Frozen object:', frozen); // { name: 'Anil', age: 30 } — unchanged
+
+// -------------------- Example: var hoisting (why to avoid it) --------------------
+console.log(hoisted); // Output: undefined (hoisted to top, not an error)
+var hoisted = 'surprise';
+// With let/const this would throw: ReferenceError: Cannot access before initialization
 
 // -------------------- End of Const Variables --------------------
